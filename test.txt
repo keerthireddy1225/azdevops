@@ -1,1 +1,3 @@
-Hello 
+flask==0.12
+django==1.11
+requests==2.19.0
