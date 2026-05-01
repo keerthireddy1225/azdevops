@@ -2,7 +2,7 @@ import os
 import sqlite3
 
 # Hardcoded secret (security issue)
-API_KEY = "12345-SECRET-KEY"
+API_KEY = "123456-SECRET-KEY"
 
 def get_user(username):
     conn = sqlite3.connect("users.db")
