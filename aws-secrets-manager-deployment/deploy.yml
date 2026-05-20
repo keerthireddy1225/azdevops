@@ -3,12 +3,7 @@ name: Deploy AWS Secrets
 on:
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
-
   deploy:
 
     runs-on: ubuntu-latest
@@ -18,7 +13,6 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    # AWS Login
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -26,11 +20,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    # Install jq
-    - name: Install jq
-      run: sudo apt-get install -y jq
-
-    # Create Secrets
     - name: Upload Secrets to AWS Secrets Manager
       shell: bash
       run: |
